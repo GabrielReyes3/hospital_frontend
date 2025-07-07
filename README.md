@@ -45,8 +45,8 @@ Angular CLI (opcional pero recomendado)
 Instrucciones para ejecutar el proyecto
 
 Clonar el repositorio
-git clone https://github.com/tu_usuario/tu_repositorio.git
-cd tu_repositorio
+git clone https://github.com/GabrielReyes3/hospital_frontend
+cd hospital_frontend
 
 Instalar dependencias
 npm install
