@@ -1,0 +1,102 @@
+<div class="register-wrapper">
+<p-card styleClass="register-card">
+  <ng-template pTemplate="header">
+    <h2 class="custom-header">Registrate</h2>
+  </ng-template>
+    <form #regForm="ngForm" (ngSubmit)="onSubmit(regForm)" novalidate>
+      <div class="p-field">
+        <label for="nombre">Nombre *</label>
+        <input id="nombre" type="text" pInputText [(ngModel)]="nombre" name="nombre" required />
+      </div>
+
+      <div class="p-field">
+        <label for="apellidos">Apellidos *</label>
+        <input id="apellidos" type="text" pInputText [(ngModel)]="apellidos" name="apellidos" required />
+      </div>
+
+      <div class="p-field">
+        <label for="tipo">Tipo de usuario *</label>
+        <p-dropdown
+          [options]="tiposUsuarios"
+          [(ngModel)]="tipo"
+          name="tipo"
+          placeholder="Selecciona un tipo"
+          required
+        ></p-dropdown>
+      </div>
+
+      <div class="p-field">
+        <label for="fecha_nacimiento">Fecha de nacimiento</label>
+        <p-calendar
+          [(ngModel)]="fecha_nacimiento"
+          name="fecha_nacimiento"
+          dateFormat="yy-mm-dd"
+          [showIcon]="true"
+          inputId="fecha_nacimiento"
+        ></p-calendar>
+      </div>
+
+      <div class="p-field">
+        <label for="genero">Género</label>
+        <p-dropdown
+          [options]="generos"
+          [(ngModel)]="genero"
+          name="genero"
+          placeholder="Selecciona un género"
+        ></p-dropdown>
+      </div>
+
+      <div class="p-field">
+        <label for="correo">Correo electrónico *</label>
+        <input
+          id="correo"
+          type="email"
+          pInputText
+          [(ngModel)]="correo"
+          name="correo"
+          required
+          email
+          autocomplete="username"
+        />
+      </div>
+
+<div class="p-field">
+  <label for="contrasena">Contraseña *</label>
+  <p-password
+    [(ngModel)]="contrasena"
+    name="contrasena"
+    required
+    toggleMask="true"
+    feedback="true"
+    inputId="contrasena"
+    promptLabel="Elige una contraseña"
+    weakLabel="Débil"
+    mediumLabel="Media"
+    strongLabel="Fuerte"
+  ></p-password>
+</div>
+
+<div class="p-field">
+  <label for="confirmarContrasena">Confirmar contraseña *</label>
+  <p-password
+    [(ngModel)]="confirmarContrasena"
+    name="confirmarContrasena"
+    required
+    toggleMask="true"
+    feedback="false"
+    inputId="confirmarContrasena"
+  ></p-password>
+</div>
+
+
+      <p class="error-message" *ngIf="errorMsg">{{ errorMsg }}</p>
+
+      <button pButton type="submit" label="Registrarse" class="w-full"></button>
+      <div class="login-link">
+  ¿Ya tienes una cuenta?
+  <a routerLink="/login">Inicia sesión aquí</a>
+</div>
+
+    </form>
+  </p-card>
+</div>
