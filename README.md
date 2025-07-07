@@ -1,20 +1,22 @@
-Hospital Frontend
+# 🏥 Hospital Frontend
 
-Proyecto frontend para sistema hospitalario desarrollado con Angular 19 y PrimeNG 19.
+Frontend del sistema hospitalario desarrollado con **Angular 19** y **PrimeNG 19**.
 
-Estructura del proyecto
+---
 
-HOSPITAL_FRONTEND
-├── angular
-├── vscode
-├── node_modules
-├── public
-├── SIC
-├── app
-│ ├── pages
-│ │ └── auth
-│ │ ├── login
-│ │ └── register
+## 📁 Estructura del proyecto
+
+HOSPITAL_FRONTEND/
+├── angular/
+├── vscode/
+├── node_modules/
+├── public/
+├── SIC/
+├── app/
+│ ├── pages/
+│ │ └── auth/
+│ │ ├── login/
+│ │ └── register/
 │ ├── app.component.css
 │ ├── app.component.html
 │ ├── app.component.spec.ts
@@ -34,48 +36,57 @@ HOSPITAL_FRONTEND
 ├── tsconfig.json
 └── tsconfig.spec.json
 
-Requisitos
+yaml
+Copiar
+Editar
 
-Node.js v18 o superior
+---
 
-npm v9 o superior
+## ✅ Requisitos
 
-Angular CLI (opcional pero recomendado)
+- Node.js `v18` o superior  
+- npm `v9` o superior  
+- Angular CLI (opcional pero recomendado)
 
-Instrucciones para ejecutar el proyecto
+---
 
-Clonar el repositorio
-git clone https://github.com/GabrielReyes3/hospital_frontend
-cd hospital_frontend
+## 🚀 Instrucciones para ejecutar el proyecto
 
+1. **Clonar el repositorio**
+   ```bash
+   git clone https://github.com/GabrielReyes3/hospital_frontend
+   cd hospital_frontend
 Instalar dependencias
+
+bash
+Copiar
+Editar
 npm install
-
 Levantar el servidor de desarrollo
+
+bash
+Copiar
+Editar
 ng serve
-
 Abrir en el navegador
-Abrir http://localhost:4200 para ver la aplicación corriendo en modo desarrollo.
+Ir a http://localhost:4200 para ver la aplicación en modo desarrollo.
 
-Notas
+📝 Notas
+El proyecto utiliza PrimeNG 19 para los componentes de UI.
 
-El proyecto utiliza PrimeNG 19 para los componentes UI.
+La carpeta principal del código Angular es app/.
 
-La carpeta principal con el código Angular está en app/.
+Los estilos globales se encuentran en styles.css.
 
-Los estilos globales están en styles.css.
+Las rutas y configuración están en la raíz de app/.
 
-Los archivos de rutas y configuración se encuentran en la raíz de app/.
+⚙️ Comandos útiles
+ng build — Genera una versión de producción en la carpeta dist/.
 
-Comandos útiles
+ng test — Ejecuta pruebas unitarias.
 
-ng build - Genera una versión de producción en la carpeta dist/.
+ng lint — Corre el linter para verificar la calidad del código.
 
-ng test - Ejecuta pruebas unitarias.
-
-ng lint - Corre el linter para verificar calidad de código.
-
-Autor
-
+👤 Autor
 Gabriel Reyes
-
+GitHub - GabrielReyes3
