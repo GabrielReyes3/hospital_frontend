@@ -6,6 +6,7 @@ Frontend del sistema hospitalario desarrollado con **Angular 19** y **PrimeNG 19
 
 ## 📁 Estructura del proyecto
 
+```
 HOSPITAL_FRONTEND/
 ├── angular/
 ├── vscode/
@@ -13,19 +14,19 @@ HOSPITAL_FRONTEND/
 ├── public/
 ├── SIC/
 ├── app/
-│ ├── pages/
-│ │ └── auth/
-│ │ ├── login/
-│ │ └── register/
-│ ├── app.component.css
-│ ├── app.component.html
-│ ├── app.component.spec.ts
-│ ├── app.component.ts
-│ ├── app.config.ts
-│ ├── app.routes.ts
-│ ├── index.html
-│ ├── main.ts
-│ ├── styles.css
+│   ├── pages/
+│   │   └── auth/
+│   │       ├── login/
+│   │       └── register/
+│   ├── app.component.css
+│   ├── app.component.html
+│   ├── app.component.spec.ts
+│   ├── app.component.ts
+│   ├── app.config.ts
+│   ├── app.routes.ts
+│   ├── index.html
+│   ├── main.ts
+│   ├── styles.css
 ├── .editorconfig
 ├── .gitignore
 ├── angular.json
@@ -35,10 +36,7 @@ HOSPITAL_FRONTEND/
 ├── tsconfig.app.json
 ├── tsconfig.json
 └── tsconfig.spec.json
-
-yaml
-Copiar
-Editar
+```
 
 ---
 
@@ -56,37 +54,41 @@ Editar
    ```bash
    git clone https://github.com/GabrielReyes3/hospital_frontend
    cd hospital_frontend
-Instalar dependencias
+   ```
 
-bash
-Copiar
-Editar
-npm install
-Levantar el servidor de desarrollo
+2. **Instalar dependencias**
+   ```bash
+   npm install
+   ```
 
-bash
-Copiar
-Editar
-ng serve
-Abrir en el navegador
-Ir a http://localhost:4200 para ver la aplicación en modo desarrollo.
+3. **Levantar el servidor de desarrollo**
+   ```bash
+   ng serve
+   ```
 
-📝 Notas
-El proyecto utiliza PrimeNG 19 para los componentes de UI.
+4. **Abrir en el navegador**  
+   Ir a [http://localhost:4200](http://localhost:4200) para ver la aplicación en modo desarrollo.
 
-La carpeta principal del código Angular es app/.
+---
 
-Los estilos globales se encuentran en styles.css.
+## 📝 Notas
 
-Las rutas y configuración están en la raíz de app/.
+- El proyecto utiliza **PrimeNG 19** para los componentes de UI.
+- La carpeta principal del código Angular es `app/`.
+- Los estilos globales se encuentran en `styles.css`.
+- Las rutas y configuración están en la raíz de `app/`.
 
-⚙️ Comandos útiles
-ng build — Genera una versión de producción en la carpeta dist/.
+---
 
-ng test — Ejecuta pruebas unitarias.
+## ⚙️ Comandos útiles
 
-ng lint — Corre el linter para verificar la calidad del código.
+- `ng build` — Genera una versión de producción en la carpeta `dist/`.  
+- `ng test` — Ejecuta pruebas unitarias.  
+- `ng lint` — Corre el linter para verificar la calidad del código.
 
-👤 Autor
-Gabriel Reyes
-GitHub - GabrielReyes3
+---
+
+## 👤 Autor
+
+**Gabriel Reyes**  
+[GitHub - GabrielReyes3](https://github.com/GabrielReyes3)
