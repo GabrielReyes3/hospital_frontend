@@ -1,0 +1,37 @@
+<form (ngSubmit)="solicitarCita()">
+  <label for="tipo">Tipo:</label>
+  <input
+    id="tipo"
+    [(ngModel)]="form.tipo"
+    name="tipo"
+    required
+    type="text"
+    placeholder="Ej. Consulta general"
+  />
+
+  <label for="consultorio">Consultorio:</label>
+  <select
+    id="consultorio"
+    [(ngModel)]="form.id_consultorio"
+    name="consultorio"
+    required
+  >
+    <option [ngValue]="0" disabled>Seleccione un consultorio</option>
+    <option *ngFor="let c of consultorios" [ngValue]="c.id">
+      {{ c.nombre }}
+    </option>
+  </select>
+
+  <label for="horario">Horario:</label>
+  <input
+    id="horario"
+    [(ngModel)]="form.horario"
+    name="horario"
+    required
+    type="datetime-local"
+  />
+
+  <!-- Si id_medico es obligatorio y debes elegir uno, agrega un select similar -->
+
+  <button type="submit">Solicitar cita</button>
+</form>

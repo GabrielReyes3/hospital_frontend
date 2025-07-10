@@ -1,0 +1,19 @@
+<!-- dashboard.component.html -->
+<div class="dashboard-header">
+  <h2>Panel del Paciente</h2>
+  <button (click)="logout()" class="logout-button">Cerrar Sesión</button>
+</div>
+<nav>
+  <ul>
+    <li><a routerLink="solicitar-cita" routerLinkActive="active">Solicitar Cita</a></li>
+    <li><a routerLink="recetas" routerLinkActive="active">Recetas</a></li>
+    <li><a routerLink="historial-citas" routerLinkActive="active">Historial</a></li>
+  </ul>
+</nav>
+
+<hr />
+
+<!-- Aquí dentro del espacio puedes poner imagen o lo que quieras -->
+<div class="content-area">
+  <router-outlet></router-outlet>
+</div>

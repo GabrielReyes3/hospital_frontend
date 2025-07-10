@@ -60,38 +60,62 @@
         />
       </div>
 
-<div class="p-field">
+
+
+      <div class="p-field password-field">
   <label for="contrasena">Contraseña *</label>
-  <p-password
-    [(ngModel)]="contrasena"
-    name="contrasena"
-    required
-    toggleMask="true"
-    feedback="true"
-    inputId="contrasena"
-    promptLabel="Elige una contraseña"
-    weakLabel="Débil"
-    mediumLabel="Media"
-    strongLabel="Fuerte"
-  ></p-password>
+  <div class="password-wrapper">
+    <small class="password-info">Debe tener al menos 12 caracteres, un número y un símbolo.</small>
+    <p-password
+      [(ngModel)]="contrasena"
+      name="contrasena"
+      required
+      toggleMask="true"
+      feedback="true"
+      inputId="contrasena"
+      promptLabel="Elige una contraseña"
+      weakLabel="Débil"
+      mediumLabel="Media"
+      strongLabel="Fuerte"
+    ></p-password>
+  </div>
 </div>
 
-<div class="p-field">
+
+
+<div class="p-field password-field">
   <label for="confirmarContrasena">Confirmar contraseña *</label>
-  <p-password
-    [(ngModel)]="confirmarContrasena"
-    name="confirmarContrasena"
-    required
-    toggleMask="true"
-    feedback="false"
-    inputId="confirmarContrasena"
-  ></p-password>
+  <div class="password-wrapper">
+    <p-password
+      [(ngModel)]="confirmarContrasena"
+      name="confirmarContrasena"
+      required
+      toggleMask="true"
+      feedback="false"
+      inputId="confirmarContrasena"
+    ></p-password>
+  </div>
 </div>
+
 
 
       <p class="error-message" *ngIf="errorMsg">{{ errorMsg }}</p>
 
       <button pButton type="submit" label="Registrarse" class="w-full"></button>
+
+
+<!-- Solo mostrar cuando showMfaSetup = true -->
+<div *ngIf="showMfaSetup" class="mfa-setup-container" style="margin-top:1rem; padding:1rem; border:1px solid #ccc; border-radius:6px;">
+  <h3>Configura la Autenticación Multifactor (MFA)</h3>
+  <p>Escanea este código QR con tu app autenticadora (Google Authenticator, Authy, etc.):</p>
+  <img *ngIf="mfaQRBase64" [src]="'data:image/png;base64,' + mfaQRBase64" alt="Código QR MFA" style="max-width: 250px;"/>
+  <p>O ingresa manualmente este código secreto:</p>
+  <code>{{ mfaSecret }}</code>
+  <p>Una vez configurado, podrás usar el código que genera tu app para iniciar sesión con mayor seguridad.</p>
+  <button pButton type="button" label="Ir a Iniciar Sesión" (click)="router.navigate(['/login'])"></button>
+</div>
+
+
       <div class="login-link">
   ¿Ya tienes una cuenta?
   <a routerLink="/login">Inicia sesión aquí</a>

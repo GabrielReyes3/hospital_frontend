@@ -79,3 +79,56 @@ button {
   color: #1976d2;
   margin-bottom: 1rem;
 }
+
+
+.p-field-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* espacio entre el checkbox y el texto */
+  margin-left: 180px; /* alineado con los otros campos */
+}
+
+
+.mfa-transition-wrapper {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+.mfa-transition-wrapper.visible {
+  max-height: 100px;
+  opacity: 1;
+}
+
+.mfa-transition-wrapper.hidden {
+  max-height: 0;
+  opacity: 0;
+}
+
+
+.totp-input {
+  width: 12ch;
+  font-size: 1.8rem;
+  letter-spacing: 1.8rem;
+  text-align: center;
+  font-family: monospace;
+  font-weight: bold;
+  padding: 0.2rem 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline-offset: 2px;
+}
+
+
+.totp-input {
+  font-size: 1rem;
+  letter-spacing: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+  width: 12ch;
+  padding: 0.2rem 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline-offset: 2px;
+}

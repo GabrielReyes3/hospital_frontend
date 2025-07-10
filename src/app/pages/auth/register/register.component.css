@@ -84,3 +84,31 @@ button {
   font-weight: 700;
   color: #1976d2; 
 }
+
+.password-field {
+  align-items: flex-start;
+}
+
+.password-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Forzamos que el componente de PrimeNG ocupe todo el ancho */
+.password-wrapper ::ng-deep .p-password {
+  width: 100% !important;
+}
+
+.password-wrapper ::ng-deep input {
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
+.password-info {
+  margin-bottom: 0.25rem;
+  color: #999;
+  font-size: 0.85rem;
+  margin-left: 0.25rem;
+}

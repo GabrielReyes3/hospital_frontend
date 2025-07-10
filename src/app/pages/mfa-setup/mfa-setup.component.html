@@ -1,0 +1,12 @@
+<!-- src/app/pages/mfa-setup/mfa-setup.component.html -->
+<div *ngIf="loading">Cargando QR...</div>
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<div *ngIf="qrDataUrl && secret">
+  <h3>Escanea este código QR con tu app de autenticación</h3>
+  <img [src]="qrDataUrl" alt="Código QR MFA" />
+  <p>
+    Si no puedes escanear, ingresa este código manualmente:
+    <strong>{{ secret }}</strong>
+  </p>
+</div>

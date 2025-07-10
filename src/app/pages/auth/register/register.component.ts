@@ -11,6 +11,8 @@ import { CalendarModule } from 'primeng/calendar';
 import { CardModule } from 'primeng/card';
 import { RouterModule } from '@angular/router';
 
+import { AuthService, RegisterData, MFASetupResponse } from '../../../services/auth.service';
+
 @Component({
   selector: 'app-register',
   standalone: true,
@@ -30,9 +32,8 @@ import { RouterModule } from '@angular/router';
 })
 export class RegisterComponent {
   tiposUsuarios = [
-    { label: 'Médico', value: 'medico' },
     { label: 'Paciente', value: 'paciente' },
-    { label: 'Admin', value: 'admin' },
+    { label: 'Enfermera', value: 'enfermera' },
   ];
 
   generos = [
@@ -52,9 +53,22 @@ export class RegisterComponent {
 
   errorMsg = '';
 
-  constructor(private router: Router) {}
+  // Para mostrar QR MFA
+  mfaQRBase64: string | null = null;
+  mfaSecret: string | null = null;
+  showMfaSetup = false;
+
+constructor(public router: Router, private authService: AuthService) {}
 
   onSubmit(form: NgForm) {
+
+    if (this.contrasena.length < 12 || 
+    !/\d/.test(this.contrasena) || 
+    !/[!@#~$%^&*()_+={}\[\]:;"'<>,.?\/\\|.-]/.test(this.contrasena)) {
+  this.errorMsg = 'La contraseña debe tener al menos 12 caracteres, incluir un número y un símbolo.';
+  return;
+}
+
     this.errorMsg = '';
 
     if (!form.valid) {
@@ -72,19 +86,39 @@ export class RegisterComponent {
       return;
     }
 
-    // Aquí iría la lógica real para enviar los datos al backend (API)
+    let fechaStr: string | undefined = undefined;
+    if (this.fecha_nacimiento) {
+      fechaStr = this.fecha_nacimiento.toISOString().slice(0, 10);
+    }
 
-    console.log('Registro OK:', {
+    const data: RegisterData = {
       nombre: this.nombre,
       apellidos: this.apellidos,
       tipo: this.tipo,
-      fecha_nacimiento: this.fecha_nacimiento,
-      genero: this.genero,
+      fecha_nacimiento: fechaStr,
+      genero: this.genero ?? undefined,
       correo: this.correo,
       contrasena: this.contrasena,
-    });
+    };
 
-    // Redireccionar a login después de registro exitoso (por ejemplo)
-    this.router.navigate(['/login']);
+    this.authService.register(data).subscribe({
+      next: () => {
+        // Registro OK, activar MFA:
+        this.authService.activarMFA(this.correo).subscribe({
+          next: (res: MFASetupResponse) => {
+            this.mfaSecret = res.secret;
+            this.mfaQRBase64 = res.qr_base64;
+            this.showMfaSetup = true;
+          },
+          error: () => {
+            this.errorMsg = 'Error al activar MFA después del registro.';
+          },
+        });
+      },
+      error: (err) => {
+        this.errorMsg =
+          err.error?.message || 'Ocurrió un error en el registro. Intenta de nuevo.';
+      },
+    });
   }
 }
