@@ -4,7 +4,7 @@ Frontend del sistema hospitalario desarrollado con **Angular 19** y **PrimeNG 19
 
 ---
 
-## 📁 Estructura del proyecto
+## 📁 Estructura actual del proyecto
 
 ```
 HOSPITAL_FRONTEND/
@@ -12,12 +12,22 @@ HOSPITAL_FRONTEND/
 ├── vscode/
 ├── node_modules/
 ├── public/
-├── SIC/
+├── SRC/
 ├── app/
+|   ├── assets/
+│   ├── guards/
+│   ├── interceptors/
 │   ├── pages/
-│   │   └── auth/
-│   │       ├── login/
-│   │       └── register/
+│   │   ├── auth/
+│   │   │      ├── login/
+│   │   │      └── register/
+│   │   └── mfa-setup/
+│   │   ├── paciente/
+│   │   │      └── dashboard/
+│   │   │             ├── solicitar-cita/
+│   │   │             ├── recetas/
+│   │   │             └── historial-citas/
+│   ├── services/
 │   ├── app.component.css
 │   ├── app.component.html
 │   ├── app.component.spec.ts
