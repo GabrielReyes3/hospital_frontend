@@ -1,0 +1,99 @@
+/* dashboard.component.css */
+
+/* Contenedor principal */
+nav {
+  background-color: #1f2937; /* gris oscuro */
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+/* Lista horizontal de enlaces */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* Items del menú */
+nav ul li {
+  /* espacio ya manejado con gap */
+}
+
+/* Estilo de los links */
+nav ul li a {
+  color: #e5e7eb; /* gris claro */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.15rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: inline-block;
+}
+
+/* Link activo o hovered */
+nav ul li a.active,
+nav ul li a:hover {
+  background-color: #3b82f6; /* azul */
+  color: white;
+  box-shadow: 0 0 8px #3b82f6aa;
+}
+
+/* Separador horizontal */
+hr {
+  margin: 0 0 1.5rem 0;
+  border: none;
+  border-top: 1px solid #374151; /* gris oscuro */
+}
+
+/* Contenido debajo del nav */
+.content-area {
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('../../../assets/medico-fondo.png') no-repeat center center / cover;
+  min-height: 500px;
+  border-radius: 10px;
+  padding: 2rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Imagen ejemplo dentro del área */
+.content-area img {
+  max-width: 300px;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.15);
+  margin-bottom: 1rem;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.logout-button {
+  background-color: #d9534f;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.logout-button:hover {
+  background-color: #c9302c;
+}
+

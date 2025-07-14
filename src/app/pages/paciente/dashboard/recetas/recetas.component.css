@@ -1,0 +1,43 @@
+:host {
+  display: block;
+  padding: 1rem;
+  color: #f5f5f5;
+  background-color: #111827; /* gris oscuro */
+  font-family: 'Inter', sans-serif;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.receta-card {
+  background-color: #1f2937;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  margin-bottom: 1rem;
+}
+
+.receta-card h3 {
+  margin-top: 0;
+  color: #38bdf8; /* celeste */
+}
+
+p {
+  margin: 0.3rem 0;
+}
+
+.mensaje {
+  padding: 1rem;
+  background-color: #374151;
+  border-left: 4px solid #60a5fa;
+  margin-bottom: 1rem;
+}
+
+.error {
+  color: #f87171;
+  background-color: #4b1c1c;
+  padding: 1rem;
+  border-radius: 5px;
+}

@@ -1,0 +1,41 @@
+<h2>Crear Receta</h2>
+
+<div class="receta-form">
+  <label for="consulta">Selecciona la consulta</label>
+  <select id="consulta" [(ngModel)]="consulta_id" required>
+    <option value="" disabled selected>Seleccione una consulta</option>
+    <option *ngFor="let c of consultas" [value]="c.id">
+      Consulta #{{ c.id }} - Paciente: {{ c.paciente }} - {{ c.horario | date:'short' }}
+    </option>
+  </select>
+
+  <label for="medicamento">Medicamento</label>
+  <input
+    id="medicamento"
+    [(ngModel)]="medicamento"
+    type="text"
+    placeholder="Ingrese medicamento"
+    required
+  />
+
+  <label for="dosis">Dosis</label>
+  <input
+    id="dosis"
+    [(ngModel)]="dosis"
+    type="text"
+    placeholder="Ingrese dosis"
+    required
+  />
+
+  <label for="nota">Notas adicionales</label>
+  <textarea
+    id="nota"
+    [(ngModel)]="nota"
+    placeholder="Notas adicionales (opcional)"
+  ></textarea>
+
+  <button (click)="crear()">Crear receta</button>
+
+  <p *ngIf="resultado" style="color: green;">{{ resultado }}</p>
+  <p *ngIf="paciente"><strong>Paciente:</strong> {{ paciente }}</p>
+</div>

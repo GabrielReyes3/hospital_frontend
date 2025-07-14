@@ -8,6 +8,9 @@ import { ButtonModule } from 'primeng/button';
 import { CheckboxModule } from 'primeng/checkbox';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+
 
 import { AuthService } from '../../../services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -24,7 +27,9 @@ import { HttpClientModule } from '@angular/common/http';
     PasswordModule,
     ButtonModule,
     RouterModule,
+    ToastModule,  // <-- aquí
   ],
+  providers: [MessageService], // <-- aquí también
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
@@ -34,7 +39,11 @@ export class LoginComponent {
   totp = '';
   usarMfa = false;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService, 
+    private router: Router,
+    private messageService: MessageService // <-- agrega esto
+  ) {}
 
   login() {
     this.authService
@@ -50,14 +59,20 @@ export class LoginComponent {
           if (tipo === 'paciente') {
             this.router.navigate(['/paciente/dashboard']);
           } else if (tipo === 'enfermera') {
-            this.router.navigate(['/register']);
+            this.router.navigate(['/enfermera/dashboard']);
           } else if (tipo === 'medico') {
             this.router.navigate(['/medico/dashboard']);
           } else {
             this.router.navigate(['/']);
           }
         },
-        error: (err) => alert(err.error?.error || 'Error al iniciar sesión'),
+error: (err) => {
+  this.messageService.add({
+    severity: 'error',
+    summary: 'Error',
+    detail: err.error?.error || 'Error al iniciar sesión',
+  });
+}
       });
   }
 

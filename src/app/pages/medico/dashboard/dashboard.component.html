@@ -1,0 +1,16 @@
+<div class="dashboard-header">
+  <h2>Panel del Médico</h2>
+  <button (click)="logout()" class="logout-button">Cerrar Sesión</button>
+</div>
+
+<nav>
+  <ul>
+    <li><a routerLink="citas" routerLinkActive="active">Citas</a></li>
+    <li><a routerLink="expedientes" routerLinkActive="active">Expedientes</a></li>
+    <li><a routerLink="recetas" routerLinkActive="active">Recetas</a></li>
+  </ul>
+</nav>
+
+<div class="content-area">
+  <router-outlet></router-outlet>
+</div>

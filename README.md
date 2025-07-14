@@ -27,7 +27,23 @@ HOSPITAL_FRONTEND/
 │   │   │             ├── solicitar-cita/
 │   │   │             ├── recetas/
 │   │   │             └── historial-citas/
+│   │   ├── enfermera/
+│   │   │      └── dashboard/
+│   │   │             ├── citas/
+│   │   │             └── expedientes/
+│   │   ├── medico/
+│   │   │      └── dashboard/
+│   │   │             ├── citas/
+│   │   │             ├── expedientes/
+│   │   │             └── recetas/
+│   │   │             
 │   ├── services/
+            └── auth.service.ts/
+            └── consulta.service.ts/
+            └── enfermera.service.ts/
+            └── medico.service.ts/          
+            └── mfa.service.ts/
+            └── paciente.service.ts/ 
 │   ├── app.component.css
 │   ├── app.component.html
 │   ├── app.component.spec.ts
@@ -49,6 +65,24 @@ HOSPITAL_FRONTEND/
 ```
 
 ---
+## 📸 Capturas de Pantalla
+
+### 🔐 Login
+![Login](./src/app/assets/screenshots/Login.png)
+
+### 📝 Registro
+![Registro](./src/app/assets/screenshots/Registro.png)
+
+### 👨‍⚕️ Panel Paciente
+![Paciente](./src/app/assets/screenshots/Paciente.png)
+
+### 🧑‍⚕️ Panel Enfermera
+![Enfermera](./src/app/assets/screenshots/Enfermera.png)
+
+### 🩺 Panel Médico
+![Medico](./src/app/assets/screenshots/Medico.png)
+
+
 
 ## ✅ Requisitos
 

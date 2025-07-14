@@ -1,1 +1,16 @@
-<p>recetas works!</p>
+<h2>🧾 Mis Recetas Médicas</h2>
+
+<div *ngIf="cargando" class="mensaje">Cargando recetas...</div>
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<div *ngIf="!cargando && recetas.length === 0" class="mensaje">
+  No tienes recetas registradas.
+</div>
+
+<div *ngFor="let receta of recetas" class="receta-card">
+  <h3>{{ receta.medicamento }}</h3>
+  <p><strong>Fecha:</strong> {{ receta.fecha | date: 'longDate' }}</p>
+  <p><strong>Dosis:</strong> {{ receta.dosis }}</p>
+  <p><strong>Médico:</strong> {{ receta.medico_nombre }} {{ receta.medico_apellidos }}</p>
+  <p><strong>Nota:</strong> {{ receta.nota || 'Sin nota' }}</p>
+</div>

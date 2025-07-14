@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { jwtDecode } from 'jwt-decode';
 
+import { ToastrService } from 'ngx-toastr';  // Importa ToastrService
 import { ConsultaService, CrearConsultaData, Consultorio } from '../../../../services/consulta.service';
 
 @Component({
@@ -23,7 +24,10 @@ export class SolicitarCitaComponent implements OnInit {
     horario: ''
   };
 
-  constructor(private consultaService: ConsultaService) {}
+  constructor(
+    private consultaService: ConsultaService,
+    private toastr: ToastrService  // Inyecta ToastrService
+  ) {}
 
   ngOnInit(): void {
     this.consultaService.obtenerConsultorios().subscribe((res) => {
@@ -39,21 +43,21 @@ export class SolicitarCitaComponent implements OnInit {
 
   solicitarCita() {
     if (!this.form.id_paciente || this.form.id_paciente <= 0) {
-      alert('ID de paciente inválido');
+      this.toastr.error('ID de paciente inválido', 'Error');
       return;
     }
     if (!this.form.id_medico || this.form.id_medico <= 0) {
-      alert('ID de médico inválido');
+      this.toastr.error('ID de médico inválido', 'Error');
       return;
     }
     if (!this.form.horario) {
-      alert('Horario es requerido');
+      this.toastr.error('Horario es requerido', 'Error');
       return;
     }
 
     const dateObj = new Date(this.form.horario);
     if (isNaN(dateObj.getTime())) {
-      alert('Horario inválido');
+      this.toastr.error('Horario inválido', 'Error');
       return;
     }
     const horarioISO = dateObj.toISOString();
@@ -67,8 +71,8 @@ export class SolicitarCitaComponent implements OnInit {
     };
 
     this.consultaService.crearConsulta(data).subscribe({
-      next: () => alert('✅ Cita creada exitosamente'),
-      error: (err) => alert('❌ Error: ' + (err.error?.error || 'Error inesperado')),
+      next: () => this.toastr.success('Cita creada exitosamente', '¡Éxito!'),
+      error: (err) => this.toastr.error(err.error?.error || 'Error inesperado', '❌ Error'),
     });
   }
 }

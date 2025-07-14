@@ -1,1 +1,32 @@
-<p>historial-citas works!</p>
+<div *ngIf="loading">Cargando historial...</div>
+
+<div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+<table *ngIf="!loading && historial.length > 0" border="1" cellpadding="5" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Fecha y Hora</th>
+      <th>Tipo</th>
+      <th>Diagnóstico</th>
+      <th>Consultorio</th>
+      <th>Ubicación</th>
+      <th>Horario Consultorio</th>
+      <th>Médico</th>
+      <th>Correo Médico</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cita of historial">
+      <td>{{ cita.horario | date: 'medium' }}</td>
+      <td>{{ cita.tipo }}</td>
+      <td>{{ cita.diagnostico }}</td>
+      <td>{{ cita.consultorio_nombre }}</td>
+      <td>{{ cita.consultorio_ubicacion }}</td>
+      <td>{{ cita.consultorio_horario }}</td>
+      <td>{{ cita.medico_nombre }} {{ cita.medico_apellidos }}</td>
+      <td>{{ cita.medico_correo }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="!loading && historial.length === 0">No tienes historial de citas.</div>

@@ -34,6 +34,7 @@ export class RegisterComponent {
   tiposUsuarios = [
     { label: 'Paciente', value: 'paciente' },
     { label: 'Enfermera', value: 'enfermera' },
+    { label: 'Medico', value: 'medico' },
   ];
 
   generos = [

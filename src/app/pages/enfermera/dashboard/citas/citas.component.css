@@ -1,0 +1,93 @@
+/* Contenedor mensajes */
+div[ng-reflect-ng-if="loading"] {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.2rem;
+  color: #bbb;
+  text-align: center;
+  padding: 1rem;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+div.error {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.1rem;
+  color: #b00020;
+  background-color: rgba(176, 0, 32, 0.15);
+  border: 1px solid #b00020;
+  border-radius: 6px;
+  margin: 1rem auto;
+  padding: 0.75rem 1rem;
+  width: fit-content;
+  box-shadow: 0 0 8px rgba(176, 0, 32, 0.3);
+}
+
+/* Animación pulso para loading */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Tabla estilizada */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  background: transparent;
+}
+
+/* Encabezados */
+thead tr {
+  background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 100%);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.4);
+}
+
+thead th {
+  padding: 15px 20px;
+  text-align: left;
+}
+
+/* Filas */
+tbody tr {
+  background: rgba(55, 65, 81, 0.6); /* gris oscuro translúcido */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: default;
+  color: #e0e7ff; /* texto claro para contraste */
+  border-radius: 8px;
+  backdrop-filter: blur(6px);
+}
+
+tbody tr:hover {
+  background: rgba(37, 99, 235, 0.7);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.5);
+  color: #fff;
+}
+
+tbody td {
+  padding: 15px 20px;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Cuando no hay datos */
+div[ng-reflect-ng-if="!loading && citas.length === 0"] {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #bbb;
+  margin-top: 1.5rem;
+  user-select: none;
+}

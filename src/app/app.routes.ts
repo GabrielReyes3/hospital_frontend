@@ -16,6 +16,22 @@ export const routes: Routes = [
       import('./pages/paciente/paciente.module').then((m) => m.PacienteModule),
   },
 
-  { path: '', redirectTo: 'login', pathMatch: 'full' }, // redirige a /login por defecto
+  {
+  path: 'enfermera',
+  canActivate: [roleGuard],
+  data: { allowed: ['enfermera'] },
+  loadChildren: () =>
+    import('./pages/enfermera/enfermera.module').then(m => m.EnfermeraModule),
+},
+
+{
+  path: 'medico',
+  canActivate: [roleGuard],
+  data: { allowed: ['medico'] },
+  loadChildren: () =>
+    import('./pages/medico/medico.module').then((m) => m.MedicoModule),
+},
+
+  { path: '**', redirectTo: 'login', pathMatch: 'full' }, // redirige a /login por defecto
   // { path: '**', redirectTo: 'login' } // cualquier ruta desconocida va a login
 ];

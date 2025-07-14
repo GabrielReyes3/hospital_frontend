@@ -1,0 +1,40 @@
+<!-- HTML -->
+<div *ngIf="loading" class="loading-message">Cargando expedientes...</div>
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<div *ngIf="!loading && !error && expedientes.length > 0" class="table-container">
+  <table border="1">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Paciente</th>
+        <th>Grupo Sanguíneo</th>
+        <th>Alergias</th>
+        <th>Enfermedades Crónicas</th>
+        <th>Antecedentes Familiares</th>
+        <th>Antecedentes Personales</th>
+        <th>Medicamentos Habituales</th>
+        <th>Vacunas</th>
+        <th>Notas Generales</th>
+        <th>Última Actualización</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let exp of expedientes">
+        <td>{{ exp.id }}</td>
+        <td>{{ exp.paciente_nombre }}</td>
+        <td>{{ exp.grupo_sanguineo }}</td>
+        <td>{{ exp.alergias || 'N/A' }}</td>
+        <td>{{ exp.enfermedades_cronicas || 'N/A' }}</td>
+        <td>{{ exp.antecedentes_familiares || 'N/A' }}</td>
+        <td>{{ exp.antecedentes_personales || 'N/A' }}</td>
+        <td>{{ exp.medicamentos_habituales || 'N/A' }}</td>
+        <td>{{ exp.vacunas || 'N/A' }}</td>
+        <td>{{ exp.notas_generales || 'N/A' }}</td>
+        <td>{{ exp.ultima_actualizacion }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="!loading && expedientes.length === 0" class="no-data-message">No hay expedientes disponibles.</div>

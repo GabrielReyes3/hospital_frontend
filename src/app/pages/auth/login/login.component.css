@@ -5,7 +5,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #1f1f1f, #2d2d2d);
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('../../../assets/fondo-register.jpg') no-repeat center center / cover;
   padding: 1rem;
 }
 
@@ -131,4 +133,68 @@ button {
   border: 1px solid #ccc;
   border-radius: 4px;
   outline-offset: 2px;
+}
+.login-container {
+  display: flex;
+  width: 100%;
+  max-width: 1000px;
+  background-color: transparent;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+}
+
+.login-left, .login-right {
+  flex: 1;
+  padding: 2rem;
+}
+
+.login-left {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.login-left {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  background-image: url('../../../assets/logoapp.png');
+  background-repeat: no-repeat;
+  background-position: center 40px; /* <- aquí */
+  background-size: 100px auto;
+  padding-top: 140px; /* puedes ajustar o eliminar si no quieres espacio extra */
+}
+
+
+.logo {
+  max-width: 120px;
+  margin: 0 auto 1.5rem;
+}
+
+.welcome-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.welcome-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #f0f0f0;
+}
+
+/* Fondo del formulario semitransparente */
+.login-card-glass {
+  background-color: rgba(240, 240, 240, 0.93) !important;
+  backdrop-filter: blur(4px);
 }

@@ -1,0 +1,20 @@
+<h2>Buscar Expediente</h2>
+
+<div class="search-bar">
+  <input type="number" [(ngModel)]="pacienteId" placeholder="ID del paciente" />
+  <button (click)="buscar()">Buscar</button>
+</div>
+
+<div *ngIf="expediente" class="expediente-card">
+  <h3>Expediente del Paciente #{{ expediente.paciente_id }}</h3>
+
+  <p><strong>Grupo sanguíneo:</strong> {{ expediente.grupo_sanguineo }}</p>
+  <p><strong>Alergias:</strong> {{ expediente.alergias }}</p>
+  <p><strong>Enfermedades crónicas:</strong> {{ expediente.enfermedades_cronicas }}</p>
+  <p><strong>Antecedentes familiares:</strong> {{ expediente.antecedentes_familiares }}</p>
+  <p><strong>Antecedentes personales:</strong> {{ expediente.antecedentes_personales }}</p>
+  <p><strong>Medicamentos habituales:</strong> {{ expediente.medicamentos_habituales }}</p>
+  <p><strong>Vacunas:</strong> {{ expediente.vacunas }}</p>
+  <p><strong>Notas generales:</strong> {{ expediente.notas_generales }}</p>
+  <p><strong>Fecha de actualización:</strong> {{ expediente.fecha_actualizacion | date:'fullDate' }}</p>
+</div>

@@ -1,0 +1,21 @@
+<h2>Mis Citas</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Paciente</th>
+      <th>Tipo</th>
+      <th>Horario</th>
+      <th>Consultorio</th>
+      <th>Diagnóstico</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cita of citas">
+      <td>{{ cita.paciente }}</td>
+      <td>{{ cita.tipo }}</td>
+      <td>{{ cita.horario | date: 'short' }}</td>
+      <td>{{ cita.consultorio }}</td>
+      <td>{{ cita.diagnostico || '-' }}</td>
+    </tr>
+  </tbody>
+</table>

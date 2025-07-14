@@ -1,0 +1,28 @@
+<div *ngIf="loading">Cargando citas...</div>
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<table *ngIf="!loading && !error && citas.length > 0" border="1">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Consultorio</th>
+      <th>Médico</th>
+      <th>Paciente</th>
+      <th>Tipo</th>
+      <th>Horario</th>
+      <th>Diagnóstico</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cita of citas">
+      <td>{{ cita.id }}</td>
+      <td>{{ cita.consultorio }}</td>
+      <td>{{ cita.medico }}</td>
+      <td>{{ cita.paciente }}</td>
+      <td>{{ cita.tipo }}</td>
+      <td>{{ cita.diagnostico || 'N/A' }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="!loading && citas.length === 0">No hay citas disponibles.</div>

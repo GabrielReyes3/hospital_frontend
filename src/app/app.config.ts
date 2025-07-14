@@ -9,6 +9,8 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { routes } from './app.routes';
 import { authInterceptor } from './interceptors/auth.interceptor';
 
+import { provideToastr } from 'ngx-toastr';  // <-- importa provideToastr
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }), 
@@ -19,6 +21,12 @@ export const appConfig: ApplicationConfig = {
       }
     }),
     provideAnimations(),
-    provideHttpClient(withInterceptors([authInterceptor]))
+    provideHttpClient(withInterceptors([authInterceptor])),
+    provideToastr({                         // <-- agrega configuración Toastr
+      positionClass: 'toast-top-right',
+      timeOut: 3000,
+      closeButton: true,
+      progressBar: true,
+    }),
   ]
 };

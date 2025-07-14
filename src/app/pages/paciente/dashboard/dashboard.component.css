@@ -53,10 +53,9 @@ hr {
 
 /* Contenido debajo del nav */
 .content-area {
-  background-image: url('../../../assets/dashboard-paciente.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('../../../assets/dashboard-paciente.jpg') no-repeat center center / cover;
   min-height: 500px;
   border-radius: 10px;
   padding: 2rem;
@@ -65,6 +64,7 @@ hr {
   justify-content: center;
   align-items: center;
 }
+
 
 
 /* Imagen ejemplo dentro del área */
